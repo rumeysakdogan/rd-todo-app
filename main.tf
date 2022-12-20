@@ -19,7 +19,7 @@ resource "aws_instance" "managed_nodes" {
   ami = "ami-0176fddd9698c4c3a" #ami-0f095f89ae15be883 RHEL 8 with HA
   count = 3
   instance_type = "t2.micro"
-  key_name = "A4L"  #replace with your key name
+  key_name = "FirstKey"  #replace with your key name
   vpc_security_group_ids = [aws_security_group.tf-sec-gr.id]
   iam_instance_profile = "jenkins-project-profile"
   tags = {
