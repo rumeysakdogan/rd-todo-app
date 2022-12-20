@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 plugin: aws_ec2
 regions:
   - "us-east-1"
