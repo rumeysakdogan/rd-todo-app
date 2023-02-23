@@ -3,7 +3,7 @@
   become: true
   vars:
     aws_region: us-east-1
-    ecr_registry: 392530415763.dkr.ecr.us-east-1.amazonaws.com 
+    ecr_registry: <AWS_account_number>.dkr.ecr.us-east-1.amazonaws.com 
   tasks:
     - name: update all packages
       yum:
@@ -93,7 +93,7 @@
   vars:
     postgre_container: /home/ec2-user/postgresql
     container_name: rumeysa_postgre
-    image_name: 392530415763.dkr.ecr.us-east-1.amazonaws.com/rumeysa-repo/todo-app:postgr
+    image_name: <AWS_account_number>.dkr.ecr.us-east-1.amazonaws.com/rumeysa-repo/todo-app:postgr
   tasks:
     - name: remove {{ container_name }} container and {{ image_name }} if exists
       shell: "docker ps -q --filter 'name={{ container_name }}' && docker stop {{ container_name }} && docker rm -fv {{ container_name }} && docker image rm -f {{ image_name }} || echo 'Not Found'"
@@ -116,7 +116,7 @@
   vars:
     container_path: /home/ec2-user/nodejs
     container_name: rumeysa_nodejs
-    image_name: 392530415763.dkr.ecr.us-east-1.amazonaws.com/rumeysa-repo/todo-app:nodejs
+    image_name: <AWS_account_number>.dkr.ecr.us-east-1.amazonaws.com/rumeysa-repo/todo-app:nodejs
   tasks:
     - name: remove {{ container_name }} container and {{ image_name }} if exists
       shell: "docker ps -q --filter 'name={{ container_name }}' && docker stop {{ container_name }} && docker rm -fv {{ container_name }} && docker image rm -f {{ image_name }} || echo 'Not Found'"
@@ -135,7 +135,7 @@
   vars:
     container_path: /home/ec2-user/react
     container_name: rumeysa_react
-    image_name: 392530415763.dkr.ecr.us-east-1.amazonaws.com/rumeysa-repo/todo-app:react
+    image_name: <AWS_account_number>.dkr.ecr.us-east-1.amazonaws.com/rumeysa-repo/todo-app:react
   tasks:
     - name: remove {{ container_name }} container and {{ image_name }} image if exists
       shell: "docker ps -q --filter 'name={{ container_name }}' && docker stop {{ container_name }} && docker rm -fv {{ container_name }} && docker image rm -f {{ image_name }} || echo 'Not Found'"
